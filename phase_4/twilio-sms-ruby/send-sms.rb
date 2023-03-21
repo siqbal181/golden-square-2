@@ -1,8 +1,8 @@
 require 'twilio-ruby'
 
 client = Twilio::REST::Client.new(
-    ENV['ACef77e87799aa9019cfe1ad139b56e8e7'],
-    ENV['6c1cb7d075aae2fa5eff80420a018e32']
+    ENV['XX'],
+    ENV['XX']
 )
 
 message = client.messages.create(
