@@ -1,7 +1,7 @@
 class OrderText
-    def initialize(order_receipt, client_class = Twilio::REST::Client)
-      @client = client_class.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
-      @order_receipt = order_receipt
+    def initialize(order_receipt, client_class = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']))
+      @client = client_class
+      @order_receipt = order_receipt # this is the order receipt to return order message
     end
   
     def send_text
@@ -12,7 +12,6 @@ class OrderText
       )
     end
   end
-  
   
 
 # pass in twilio client similar to io
