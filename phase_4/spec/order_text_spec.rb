@@ -18,7 +18,7 @@ RSpec.describe OrderText do
     order_text = OrderText.new(order_receipt_double, client_class_double)
 
     # call the send_text method
-    order_text.send_text("Thanks for your order! It is estimated to arrive at 11:01")
+    order_text.send_text
 
     # verify that the client instance was created with the correct arguments
     expect(client_class_double).to have_received(:new).with(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])

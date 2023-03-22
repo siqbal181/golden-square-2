@@ -6,7 +6,7 @@ class OrderText
       @order_receipt = order_receipt # this is the order receipt to return order message
     end
   
-    def send_text(message)
+    def send_text
       message = @client.messages.create(
         body: "#{@order_receipt.order_text_message}",
         to: ENV['TO_PHONE_NUMBER'],
