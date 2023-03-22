@@ -1,7 +1,10 @@
+require 'time'
+
 class Order
     def initialize(io)
         @io = io
         @order_basket = []
+        @order_time = nil
     end
 
     def list_dishes
@@ -21,7 +24,10 @@ class Order
           @io.puts "Select a dish by typing a number 1-5 (Type \"Order Complete\" when done)"
           @io.puts format_menu    # (list dishes in format perspective)
           dish_item = @io.gets.chomp
-          break if dish_item == "Order Complete"
+          if dish_item == "Order Complete"
+            @order_time = Time.now()
+            break
+          end
           dish_item = dish_item.to_i
       
           if (1..5).include?(dish_item)
@@ -43,5 +49,9 @@ class Order
 
     def order_basket
         @order_basket
+    end
+
+    def order_time
+        @order_time
     end
 end
