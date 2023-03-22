@@ -14,13 +14,14 @@ RSpec.describe OrderText do
         body: "Thanks for your order! It is estimated to arrive at 11:01", to: ENV['TO_PHONE_NUMBER'], from: ENV['TWILIO_PHONE_NUMBER']
       ).and_return(messages_double)
   
-      # create an OrderText instance with the doubles
+      # create an OrderText instance with the doubles and call send_text
       order_text = OrderText.new(order_receipt_double, client_class_double)
-  
-      # call the send_text method
       order_text.send_text
   
       # verify that the messages.create method was called on the messages object with the correct arguments
       expect(messages_double).to eq messages_double
+
+      # add verification message to confirm the string has been returned
+      expect(order_text.send_text).to eq "Message successfully sent!"
       end
   end

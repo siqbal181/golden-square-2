@@ -10,23 +10,7 @@ class OrderText
         to: ENV['TO_PHONE_NUMBER'],
         from: ENV['TWILIO_PHONE_NUMBER']
       )
+      return "Message successfully sent!" if message
     end
   end
   
-
-# pass in twilio client similar to io
-# pass in a mock client
-# pass in a class itslef into the OrderText - client class // default to Twilio:: REST:: Client
-# @client = client_class.new(EV, AUTH_TOKEN)
-# Was the mock class initialized with the right variable
-# did mockclass.send_text 
-# We want to make sure our Ordertext is calling the right message on the right client and has the right argument
-# instance_double = double(:message => true)
-# MockClass = double(:new => instance_double)
-# double(:new => )
-
-# test
-
-# order_text = OrderText.new(order_receipt, MockClass)
-# order_text.message()
-# expect(instance_double.message).to  have_been_called_with({to: 'number'})
